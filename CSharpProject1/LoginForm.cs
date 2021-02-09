@@ -31,5 +31,20 @@ namespace CSharpProject1
         {
 
         }
+
+        private void metroTextBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void passText_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void metroLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

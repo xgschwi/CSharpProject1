@@ -1,6 +1,6 @@
 ﻿namespace CSharpProject1
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -30,14 +30,14 @@
         {
             this.SuspendLayout();
             // 
-            // Form1
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 463);
-            this.Name = "Form1";
-            this.Text = "Attendance System";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Name = "MainForm";
+            this.Text = "Assignment System";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.ResumeLayout(false);
 
         }

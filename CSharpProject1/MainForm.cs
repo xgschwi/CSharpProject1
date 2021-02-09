@@ -10,16 +10,18 @@ using System.Windows.Forms;
 
 namespace CSharpProject1
 {
-    public partial class Form1 : MetroFramework.Forms.MetroForm
+    public partial class MainForm : MetroFramework.Forms.MetroForm
     {
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void MainForm_Load(object sender, EventArgs e)
         {
-
+            // Open Login Form
+            LoginForm newLogin = new LoginForm();
+            newLogin.ShowDialog();
         }
     }
 }
