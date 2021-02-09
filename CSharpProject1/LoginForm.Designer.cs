@@ -77,7 +77,6 @@
             this.userText.UseSelectable = true;
             this.userText.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.userText.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            this.userText.Click += new System.EventHandler(this.metroTextBox1_Click);
             // 
             // passText
             // 
@@ -109,7 +108,6 @@
             this.passText.UseSelectable = true;
             this.passText.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.passText.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            this.passText.Click += new System.EventHandler(this.passText_Click);
             // 
             // metroLabelUser
             // 
@@ -119,7 +117,6 @@
             this.metroLabelUser.Size = new System.Drawing.Size(42, 20);
             this.metroLabelUser.TabIndex = 9;
             this.metroLabelUser.Text = "User:";
-            this.metroLabelUser.Click += new System.EventHandler(this.metroLabel1_Click);
             // 
             // metroLabelPass
             // 
@@ -132,18 +129,19 @@
             // 
             // loginBtn
             // 
-            this.loginBtn.Location = new System.Drawing.Point(249, 373);
+            this.loginBtn.Location = new System.Drawing.Point(138, 369);
             this.loginBtn.Name = "loginBtn";
             this.loginBtn.Size = new System.Drawing.Size(75, 23);
             this.loginBtn.TabIndex = 11;
             this.loginBtn.Text = "Login";
             this.loginBtn.UseSelectable = true;
+            this.loginBtn.Click += new System.EventHandler(this.loginBtn_Click);
             // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(341, 450);
+            this.ClientSize = new System.Drawing.Size(286, 425);
             this.Controls.Add(this.loginBtn);
             this.Controls.Add(this.metroLabelPass);
             this.Controls.Add(this.metroLabelUser);
@@ -152,7 +150,9 @@
             this.Controls.Add(this.pictureBox2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "LoginForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
+            this.Load += new System.EventHandler(this.LoginForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
