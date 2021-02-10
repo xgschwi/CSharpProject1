@@ -14,6 +14,8 @@ namespace CSharpProject1
     {
 
         public bool loginFlag { get; set; }
+        public int UserID { get; set; }
+
         public LoginForm()
         {
             InitializeComponent();
@@ -30,6 +32,7 @@ namespace CSharpProject1
             {
                 // valid
                 MessageBox.Show("Login Ok");
+                UserID = int.Parse(dt.Rows[0]["UserID"].ToString());
                 loginFlag = true;
             }
             else
