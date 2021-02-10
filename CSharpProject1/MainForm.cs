@@ -58,5 +58,13 @@ namespace CSharpProject1
             addClass.UserID = this.UserID;
             addClass.ShowDialog();
         }
+
+        private void metroButton4_Click(object sender, EventArgs e)
+        {
+            AssignmentForm assignments = new AssignmentForm();
+            assignments.ClassName = metroComboBox1.Text;
+            assignments.ClassID = (int)metroComboBox1.SelectedValue;
+            assignments.ShowDialog();
+        }
     }
 }

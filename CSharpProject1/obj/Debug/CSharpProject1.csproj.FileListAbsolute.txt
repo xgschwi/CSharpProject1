@@ -13,3 +13,4 @@ C:\Projects\C#Project1\CSharpProject1\obj\Debug\CSharpProject1.csproj.CopyComple
 C:\Projects\C#Project1\CSharpProject1\obj\Debug\CSharpProject1.exe
 C:\Projects\C#Project1\CSharpProject1\obj\Debug\CSharpProject1.pdb
 C:\Projects\C#Project1\CSharpProject1\obj\Debug\CSharpProject1.FormAddClass.resources
+C:\Projects\C#Project1\CSharpProject1\obj\Debug\CSharpProject1.AssignmentForm.resources
