@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.metroTabControl1 = new MetroFramework.Controls.MetroTabControl();
             this.metroTabPage1 = new MetroFramework.Controls.MetroTabPage();
+            this.metroButton5 = new MetroFramework.Controls.MetroButton();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.statlblUser = new System.Windows.Forms.ToolStripStatusLabel();
@@ -39,6 +40,11 @@
             this.metroButton2 = new MetroFramework.Controls.MetroButton();
             this.metroButton1 = new MetroFramework.Controls.MetroButton();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.assignmentNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateDueDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.assignmentRecordsTBLBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSet11 = new CSharpProject1.DataSet1();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
@@ -48,10 +54,13 @@
             this.dataSet1 = new CSharpProject1.DataSet1();
             this.metroTabPage2 = new MetroFramework.Controls.MetroTabPage();
             this.classesTBLTableAdapter = new CSharpProject1.DataSet1TableAdapters.ClassesTBLTableAdapter();
+            this.assignmentRecordsTBLTableAdapter = new CSharpProject1.DataSet1TableAdapters.AssignmentRecordsTBLTableAdapter();
             this.metroTabControl1.SuspendLayout();
             this.metroTabPage1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.assignmentRecordsTBLBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.classesTBLBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
@@ -71,6 +80,7 @@
             // 
             // metroTabPage1
             // 
+            this.metroTabPage1.Controls.Add(this.metroButton5);
             this.metroTabPage1.Controls.Add(this.statusStrip1);
             this.metroTabPage1.Controls.Add(this.metroButton4);
             this.metroTabPage1.Controls.Add(this.metroButton3);
@@ -92,6 +102,16 @@
             this.metroTabPage1.VerticalScrollbarBarColor = true;
             this.metroTabPage1.VerticalScrollbarHighlightOnWheel = false;
             this.metroTabPage1.VerticalScrollbarSize = 10;
+            // 
+            // metroButton5
+            // 
+            this.metroButton5.Location = new System.Drawing.Point(500, 44);
+            this.metroButton5.Name = "metroButton5";
+            this.metroButton5.Size = new System.Drawing.Size(75, 23);
+            this.metroButton5.TabIndex = 12;
+            this.metroButton5.Text = "Get Values";
+            this.metroButton5.UseSelectable = true;
+            this.metroButton5.Click += new System.EventHandler(this.metroButton5_Click);
             // 
             // statusStrip1
             // 
@@ -139,7 +159,7 @@
             // 
             // metroButton2
             // 
-            this.metroButton2.Location = new System.Drawing.Point(310, 154);
+            this.metroButton2.Location = new System.Drawing.Point(465, 150);
             this.metroButton2.Name = "metroButton2";
             this.metroButton2.Size = new System.Drawing.Size(75, 23);
             this.metroButton2.TabIndex = 8;
@@ -148,7 +168,7 @@
             // 
             // metroButton1
             // 
-            this.metroButton1.Location = new System.Drawing.Point(310, 116);
+            this.metroButton1.Location = new System.Drawing.Point(465, 106);
             this.metroButton1.Name = "metroButton1";
             this.metroButton1.Size = new System.Drawing.Size(75, 23);
             this.metroButton1.TabIndex = 7;
@@ -157,18 +177,58 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.assignmentNameDataGridViewTextBoxColumn,
+            this.dateDueDataGridViewTextBoxColumn,
+            this.statusDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.assignmentRecordsTBLBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(3, 89);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(240, 358);
+            this.dataGridView1.Size = new System.Drawing.Size(426, 358);
             this.dataGridView1.TabIndex = 6;
+            // 
+            // assignmentNameDataGridViewTextBoxColumn
+            // 
+            this.assignmentNameDataGridViewTextBoxColumn.DataPropertyName = "AssignmentName";
+            this.assignmentNameDataGridViewTextBoxColumn.HeaderText = "AssignmentName";
+            this.assignmentNameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.assignmentNameDataGridViewTextBoxColumn.Name = "assignmentNameDataGridViewTextBoxColumn";
+            this.assignmentNameDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // dateDueDataGridViewTextBoxColumn
+            // 
+            this.dateDueDataGridViewTextBoxColumn.DataPropertyName = "DateDue";
+            this.dateDueDataGridViewTextBoxColumn.HeaderText = "Due Date";
+            this.dateDueDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.dateDueDataGridViewTextBoxColumn.Name = "dateDueDataGridViewTextBoxColumn";
+            this.dateDueDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // statusDataGridViewTextBoxColumn
+            // 
+            this.statusDataGridViewTextBoxColumn.DataPropertyName = "Status";
+            this.statusDataGridViewTextBoxColumn.HeaderText = "Status";
+            this.statusDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
+            this.statusDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // assignmentRecordsTBLBindingSource
+            // 
+            this.assignmentRecordsTBLBindingSource.DataMember = "AssignmentRecordsTBL";
+            this.assignmentRecordsTBLBindingSource.DataSource = this.dataSet11;
+            // 
+            // dataSet11
+            // 
+            this.dataSet11.DataSetName = "DataSet1";
+            this.dataSet11.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // metroLabel2
             // 
             this.metroLabel2.AutoSize = true;
-            this.metroLabel2.Location = new System.Drawing.Point(263, 13);
+            this.metroLabel2.Location = new System.Drawing.Point(227, 13);
             this.metroLabel2.Name = "metroLabel2";
             this.metroLabel2.Size = new System.Drawing.Size(176, 20);
             this.metroLabel2.TabIndex = 5;
@@ -185,9 +245,10 @@
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(263, 44);
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker1.Location = new System.Drawing.Point(227, 44);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 22);
+            this.dateTimePicker1.Size = new System.Drawing.Size(250, 22);
             this.dateTimePicker1.TabIndex = 3;
             // 
             // metroComboBox1
@@ -236,6 +297,10 @@
             // 
             this.classesTBLTableAdapter.ClearBeforeFill = true;
             // 
+            // assignmentRecordsTBLTableAdapter
+            // 
+            this.assignmentRecordsTBLTableAdapter.ClearBeforeFill = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -252,6 +317,8 @@
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.assignmentRecordsTBLBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.classesTBLBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1BindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
@@ -280,6 +347,13 @@
         private DataSet1 dataSet1;
         private System.Windows.Forms.BindingSource classesTBLBindingSource;
         private DataSet1TableAdapters.ClassesTBLTableAdapter classesTBLTableAdapter;
+        private MetroFramework.Controls.MetroButton metroButton5;
+        private DataSet1 dataSet11;
+        private System.Windows.Forms.BindingSource assignmentRecordsTBLBindingSource;
+        private DataSet1TableAdapters.AssignmentRecordsTBLTableAdapter assignmentRecordsTBLTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn assignmentNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dateDueDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
     }
 }
 

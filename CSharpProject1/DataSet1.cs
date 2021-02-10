@@ -7,9 +7,12 @@
     }
 }
 
-namespace CSharpProject1.DataSet1TableAdapters {
-    
-    
+namespace CSharpProject1.DataSet1TableAdapters
+{
+    partial class AssignmentsTBLTableAdapter
+    {
+    }
+
     public partial class UsersTableAdapter {
     }
 }

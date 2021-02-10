@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CSharpProject1.DataSet1TableAdapters;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -22,8 +23,10 @@ namespace CSharpProject1
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'dataSet1.ClassesTBL' table. You can move, or remove it, as needed.
+            // TODO: This line of code loads data into the 'dataSet11.AssignmentRecordsTBL' table. You can move, or remove it, as needed.
             
+            // TODO: This line of code loads data into the 'dataSet1.ClassesTBL' table. You can move, or remove it, as needed.
+
 
         }
 
@@ -65,6 +68,39 @@ namespace CSharpProject1
             assignments.ClassName = metroComboBox1.Text;
             assignments.ClassID = (int)metroComboBox1.SelectedValue;
             assignments.ShowDialog();
+        }
+
+        private void metroButton5_Click(object sender, EventArgs e)
+        {
+            // Check if records exists, if yes load for editing. If not, create record and load for edit
+            AssignmentRecordsTBLTableAdapter ada = new AssignmentRecordsTBLTableAdapter();
+            DataTable dt = ada.GetDataBy((int)metroComboBox1.SelectedValue, dateTimePicker1.Text);
+
+            if(dt.Rows.Count > 0)
+            {
+                // Records are present
+                DataTable dt_pres = ada.GetDataBy((int)metroComboBox1.SelectedValue, dateTimePicker1.Text);
+                dataGridView1.DataSource = dt_pres;
+            }
+            else
+            {
+                // Create a record for each assignment
+
+                // Get the class assignment list
+                AssignmentsTBLTableAdapter assignment_ada = new AssignmentsTBLTableAdapter();
+                DataTable dt_Assignments = assignment_ada.GetDataByClassID((int)metroComboBox1.SelectedValue);
+
+                foreach(DataRow row in dt_Assignments.Rows)
+                {
+                    // Insert a new record for this assignment
+                    ada.InsertQuery((int)row[0], (int)metroComboBox1.SelectedValue, dateTimePicker1.Text, "", row[1].ToString(), metroComboBox1.Text);
+                
+                }
+
+                DataTable dt_new = ada.GetDataBy((int)metroComboBox1.SelectedValue, dateTimePicker1.Text);
+                dataGridView1.DataSource = dt_new;
+            }
+            //this.assignmentRecordsTBLTableAdapter.Fill(this.dataSet11.AssignmentRecordsTBL);
         }
     }
 }

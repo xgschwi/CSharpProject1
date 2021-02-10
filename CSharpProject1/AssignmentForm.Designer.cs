@@ -30,20 +30,21 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.assignmentIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.assignmentNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.classIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.assignmentsTBLBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSet1 = new CSharpProject1.DataSet1();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.labelClassName = new MetroFramework.Controls.MetroLabel();
             this.labelClassID = new MetroFramework.Controls.MetroLabel();
             this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
             this.metroButton1 = new MetroFramework.Controls.MetroButton();
-            this.dataSet1 = new CSharpProject1.DataSet1();
-            this.assignmentsTBLBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.assignmentsTBLTableAdapter = new CSharpProject1.DataSet1TableAdapters.AssignmentsTBLTableAdapter();
-            this.assignmentIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.assignmentNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.classIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DueDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.assignmentsTBLBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -53,7 +54,8 @@
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.assignmentIDDataGridViewTextBoxColumn,
             this.assignmentNameDataGridViewTextBoxColumn,
-            this.classIDDataGridViewTextBoxColumn});
+            this.classIDDataGridViewTextBoxColumn,
+            this.DueDate});
             this.dataGridView1.DataSource = this.assignmentsTBLBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(42, 73);
             this.dataGridView1.Name = "dataGridView1";
@@ -61,6 +63,41 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(533, 303);
             this.dataGridView1.TabIndex = 0;
+            // 
+            // assignmentIDDataGridViewTextBoxColumn
+            // 
+            this.assignmentIDDataGridViewTextBoxColumn.DataPropertyName = "AssignmentID";
+            this.assignmentIDDataGridViewTextBoxColumn.HeaderText = "AssignmentID";
+            this.assignmentIDDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.assignmentIDDataGridViewTextBoxColumn.Name = "assignmentIDDataGridViewTextBoxColumn";
+            this.assignmentIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.assignmentIDDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // assignmentNameDataGridViewTextBoxColumn
+            // 
+            this.assignmentNameDataGridViewTextBoxColumn.DataPropertyName = "AssignmentName";
+            this.assignmentNameDataGridViewTextBoxColumn.HeaderText = "AssignmentName";
+            this.assignmentNameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.assignmentNameDataGridViewTextBoxColumn.Name = "assignmentNameDataGridViewTextBoxColumn";
+            this.assignmentNameDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // classIDDataGridViewTextBoxColumn
+            // 
+            this.classIDDataGridViewTextBoxColumn.DataPropertyName = "ClassID";
+            this.classIDDataGridViewTextBoxColumn.HeaderText = "ClassID";
+            this.classIDDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.classIDDataGridViewTextBoxColumn.Name = "classIDDataGridViewTextBoxColumn";
+            this.classIDDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // assignmentsTBLBindingSource
+            // 
+            this.assignmentsTBLBindingSource.DataMember = "AssignmentsTBL";
+            this.assignmentsTBLBindingSource.DataSource = this.dataSet1;
+            // 
+            // dataSet1
+            // 
+            this.dataSet1.DataSetName = "DataSet1";
+            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // metroLabel1
             // 
@@ -108,44 +145,17 @@
             this.metroButton1.UseSelectable = true;
             this.metroButton1.Click += new System.EventHandler(this.metroButton1_Click);
             // 
-            // dataSet1
-            // 
-            this.dataSet1.DataSetName = "DataSet1";
-            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // assignmentsTBLBindingSource
-            // 
-            this.assignmentsTBLBindingSource.DataMember = "AssignmentsTBL";
-            this.assignmentsTBLBindingSource.DataSource = this.dataSet1;
-            // 
             // assignmentsTBLTableAdapter
             // 
             this.assignmentsTBLTableAdapter.ClearBeforeFill = true;
             // 
-            // assignmentIDDataGridViewTextBoxColumn
+            // DueDate
             // 
-            this.assignmentIDDataGridViewTextBoxColumn.DataPropertyName = "AssignmentID";
-            this.assignmentIDDataGridViewTextBoxColumn.HeaderText = "AssignmentID";
-            this.assignmentIDDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.assignmentIDDataGridViewTextBoxColumn.Name = "assignmentIDDataGridViewTextBoxColumn";
-            this.assignmentIDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.assignmentIDDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // assignmentNameDataGridViewTextBoxColumn
-            // 
-            this.assignmentNameDataGridViewTextBoxColumn.DataPropertyName = "AssignmentName";
-            this.assignmentNameDataGridViewTextBoxColumn.HeaderText = "AssignmentName";
-            this.assignmentNameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.assignmentNameDataGridViewTextBoxColumn.Name = "assignmentNameDataGridViewTextBoxColumn";
-            this.assignmentNameDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // classIDDataGridViewTextBoxColumn
-            // 
-            this.classIDDataGridViewTextBoxColumn.DataPropertyName = "ClassID";
-            this.classIDDataGridViewTextBoxColumn.HeaderText = "ClassID";
-            this.classIDDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.classIDDataGridViewTextBoxColumn.Name = "classIDDataGridViewTextBoxColumn";
-            this.classIDDataGridViewTextBoxColumn.Width = 125;
+            this.DueDate.DataPropertyName = "DueDate";
+            this.DueDate.HeaderText = "DueDate";
+            this.DueDate.MinimumWidth = 6;
+            this.DueDate.Name = "DueDate";
+            this.DueDate.Width = 125;
             // 
             // AssignmentForm
             // 
@@ -165,8 +175,8 @@
             this.Text = "AssignmentForm";
             this.Load += new System.EventHandler(this.AssignmentForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.assignmentsTBLBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -186,5 +196,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn assignmentIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn assignmentNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn classIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DueDate;
     }
 }
