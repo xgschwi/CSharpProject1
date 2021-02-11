@@ -33,6 +33,7 @@ namespace CSharpProject1
         {
             this.assignmentsTBLBindingSource.EndEdit();
             this.assignmentsTBLTableAdapter.Update(dataSet1.AssignmentsTBL);
+            Close();
         }
     }
 }

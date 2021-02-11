@@ -33,6 +33,7 @@
             this.assignmentIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.assignmentNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.classIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DueDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.assignmentsTBLBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataSet1 = new CSharpProject1.DataSet1();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
@@ -41,7 +42,8 @@
             this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
             this.metroButton1 = new MetroFramework.Controls.MetroButton();
             this.assignmentsTBLTableAdapter = new CSharpProject1.DataSet1TableAdapters.AssignmentsTBLTableAdapter();
-            this.DueDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.metroTextBox1 = new MetroFramework.Controls.MetroTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.assignmentsTBLBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
@@ -55,9 +57,10 @@
             this.assignmentIDDataGridViewTextBoxColumn,
             this.assignmentNameDataGridViewTextBoxColumn,
             this.classIDDataGridViewTextBoxColumn,
-            this.DueDate});
+            this.DueDate,
+            this.Status});
             this.dataGridView1.DataSource = this.assignmentsTBLBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(42, 73);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 73);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
@@ -88,6 +91,14 @@
             this.classIDDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.classIDDataGridViewTextBoxColumn.Name = "classIDDataGridViewTextBoxColumn";
             this.classIDDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // DueDate
+            // 
+            this.DueDate.DataPropertyName = "DueDate";
+            this.DueDate.HeaderText = "DueDate";
+            this.DueDate.MinimumWidth = 6;
+            this.DueDate.Name = "DueDate";
+            this.DueDate.Width = 125;
             // 
             // assignmentsTBLBindingSource
             // 
@@ -149,13 +160,48 @@
             // 
             this.assignmentsTBLTableAdapter.ClearBeforeFill = true;
             // 
-            // DueDate
+            // Status
             // 
-            this.DueDate.DataPropertyName = "DueDate";
-            this.DueDate.HeaderText = "DueDate";
-            this.DueDate.MinimumWidth = 6;
-            this.DueDate.Name = "DueDate";
-            this.DueDate.Width = 125;
+            this.Status.DataPropertyName = "Status";
+            this.Status.HeaderText = "Status";
+            this.Status.MinimumWidth = 6;
+            this.Status.Name = "Status";
+            this.Status.Width = 125;
+            // 
+            // metroTextBox1
+            // 
+            // 
+            // 
+            // 
+            this.metroTextBox1.CustomButton.Image = null;
+            this.metroTextBox1.CustomButton.Location = new System.Drawing.Point(-138, 1);
+            this.metroTextBox1.CustomButton.Name = "";
+            this.metroTextBox1.CustomButton.Size = new System.Drawing.Size(213, 213);
+            this.metroTextBox1.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.metroTextBox1.CustomButton.TabIndex = 1;
+            this.metroTextBox1.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.metroTextBox1.CustomButton.UseSelectable = true;
+            this.metroTextBox1.CustomButton.Visible = false;
+            this.metroTextBox1.Lines = new string[] {
+        "Statuses:     _____________                       In Progress                    " +
+            "    Late                                       Complete"};
+            this.metroTextBox1.Location = new System.Drawing.Point(549, 56);
+            this.metroTextBox1.MaxLength = 32767;
+            this.metroTextBox1.Multiline = true;
+            this.metroTextBox1.Name = "metroTextBox1";
+            this.metroTextBox1.PasswordChar = '\0';
+            this.metroTextBox1.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.metroTextBox1.SelectedText = "";
+            this.metroTextBox1.SelectionLength = 0;
+            this.metroTextBox1.SelectionStart = 0;
+            this.metroTextBox1.ShortcutsEnabled = true;
+            this.metroTextBox1.Size = new System.Drawing.Size(76, 215);
+            this.metroTextBox1.TabIndex = 6;
+            this.metroTextBox1.Text = "Statuses:     _____________                       In Progress                    " +
+    "    Late                                       Complete";
+            this.metroTextBox1.UseSelectable = true;
+            this.metroTextBox1.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.metroTextBox1.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
             // AssignmentForm
             // 
@@ -163,6 +209,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(632, 410);
+            this.Controls.Add(this.metroTextBox1);
             this.Controls.Add(this.metroButton1);
             this.Controls.Add(this.labelClassID);
             this.Controls.Add(this.metroLabel4);
@@ -197,5 +244,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn assignmentNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn classIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn DueDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Status;
+        private MetroFramework.Controls.MetroTextBox metroTextBox1;
     }
 }

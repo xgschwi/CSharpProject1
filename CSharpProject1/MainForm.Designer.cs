@@ -40,10 +40,9 @@
             this.metroButton2 = new MetroFramework.Controls.MetroButton();
             this.metroButton1 = new MetroFramework.Controls.MetroButton();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.DueDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.assignmentNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateDueDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.assignmentRecordsTBLBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.assignmentsTBLBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataSet11 = new CSharpProject1.DataSet1();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
@@ -53,17 +52,21 @@
             this.dataSet1BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataSet1 = new CSharpProject1.DataSet1();
             this.metroTabPage2 = new MetroFramework.Controls.MetroTabPage();
+            this.assignmentRecordsTBLBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.classesTBLTableAdapter = new CSharpProject1.DataSet1TableAdapters.ClassesTBLTableAdapter();
             this.assignmentRecordsTBLTableAdapter = new CSharpProject1.DataSet1TableAdapters.AssignmentRecordsTBLTableAdapter();
+            this.assignmentsTBLTableAdapter = new CSharpProject1.DataSet1TableAdapters.AssignmentsTBLTableAdapter();
+            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.metroTabControl1.SuspendLayout();
             this.metroTabPage1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.assignmentRecordsTBLBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.assignmentsTBLBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.classesTBLBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.assignmentRecordsTBLBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // metroTabControl1
@@ -98,7 +101,7 @@
             this.metroTabPage1.Name = "metroTabPage1";
             this.metroTabPage1.Size = new System.Drawing.Size(752, 470);
             this.metroTabPage1.TabIndex = 0;
-            this.metroTabPage1.Text = "Assignment Page";
+            this.metroTabPage1.Text = "Assignment Viewer   ";
             this.metroTabPage1.VerticalScrollbarBarColor = true;
             this.metroTabPage1.VerticalScrollbarHighlightOnWheel = false;
             this.metroTabPage1.VerticalScrollbarSize = 10;
@@ -180,16 +183,24 @@
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.DueDate,
             this.assignmentNameDataGridViewTextBoxColumn,
-            this.dateDueDataGridViewTextBoxColumn,
-            this.statusDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.assignmentRecordsTBLBindingSource;
+            this.Status});
+            this.dataGridView1.DataSource = this.assignmentsTBLBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(3, 89);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(426, 358);
+            this.dataGridView1.Size = new System.Drawing.Size(428, 358);
             this.dataGridView1.TabIndex = 6;
+            // 
+            // DueDate
+            // 
+            this.DueDate.DataPropertyName = "DueDate";
+            this.DueDate.HeaderText = "DueDate";
+            this.DueDate.MinimumWidth = 6;
+            this.DueDate.Name = "DueDate";
+            this.DueDate.Width = 125;
             // 
             // assignmentNameDataGridViewTextBoxColumn
             // 
@@ -199,26 +210,10 @@
             this.assignmentNameDataGridViewTextBoxColumn.Name = "assignmentNameDataGridViewTextBoxColumn";
             this.assignmentNameDataGridViewTextBoxColumn.Width = 125;
             // 
-            // dateDueDataGridViewTextBoxColumn
+            // assignmentsTBLBindingSource
             // 
-            this.dateDueDataGridViewTextBoxColumn.DataPropertyName = "DateDue";
-            this.dateDueDataGridViewTextBoxColumn.HeaderText = "Due Date";
-            this.dateDueDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.dateDueDataGridViewTextBoxColumn.Name = "dateDueDataGridViewTextBoxColumn";
-            this.dateDueDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // statusDataGridViewTextBoxColumn
-            // 
-            this.statusDataGridViewTextBoxColumn.DataPropertyName = "Status";
-            this.statusDataGridViewTextBoxColumn.HeaderText = "Status";
-            this.statusDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
-            this.statusDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // assignmentRecordsTBLBindingSource
-            // 
-            this.assignmentRecordsTBLBindingSource.DataMember = "AssignmentRecordsTBL";
-            this.assignmentRecordsTBLBindingSource.DataSource = this.dataSet11;
+            this.assignmentsTBLBindingSource.DataMember = "AssignmentsTBL";
+            this.assignmentsTBLBindingSource.DataSource = this.dataSet11;
             // 
             // dataSet11
             // 
@@ -293,6 +288,11 @@
             this.metroTabPage2.VerticalScrollbarHighlightOnWheel = false;
             this.metroTabPage2.VerticalScrollbarSize = 10;
             // 
+            // assignmentRecordsTBLBindingSource
+            // 
+            this.assignmentRecordsTBLBindingSource.DataMember = "AssignmentRecordsTBL";
+            this.assignmentRecordsTBLBindingSource.DataSource = this.dataSet11;
+            // 
             // classesTBLTableAdapter
             // 
             this.classesTBLTableAdapter.ClearBeforeFill = true;
@@ -300,6 +300,18 @@
             // assignmentRecordsTBLTableAdapter
             // 
             this.assignmentRecordsTBLTableAdapter.ClearBeforeFill = true;
+            // 
+            // assignmentsTBLTableAdapter
+            // 
+            this.assignmentsTBLTableAdapter.ClearBeforeFill = true;
+            // 
+            // Status
+            // 
+            this.Status.DataPropertyName = "Status";
+            this.Status.HeaderText = "Status";
+            this.Status.MinimumWidth = 6;
+            this.Status.Name = "Status";
+            this.Status.Width = 125;
             // 
             // MainForm
             // 
@@ -317,11 +329,12 @@
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.assignmentRecordsTBLBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.assignmentsTBLBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.classesTBLBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1BindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.assignmentRecordsTBLBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -351,9 +364,11 @@
         private DataSet1 dataSet11;
         private System.Windows.Forms.BindingSource assignmentRecordsTBLBindingSource;
         private DataSet1TableAdapters.AssignmentRecordsTBLTableAdapter assignmentRecordsTBLTableAdapter;
+        private System.Windows.Forms.BindingSource assignmentsTBLBindingSource;
+        private DataSet1TableAdapters.AssignmentsTBLTableAdapter assignmentsTBLTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DueDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn assignmentNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dateDueDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Status;
     }
 }
 

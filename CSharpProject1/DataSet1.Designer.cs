@@ -975,6 +975,8 @@ namespace CSharpProject1 {
             
             private global::System.Data.DataColumn columnDueDate;
             
+            private global::System.Data.DataColumn columnStatus;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public AssignmentsTBLDataTable() {
@@ -1042,6 +1044,14 @@ namespace CSharpProject1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn StatusColumn {
+                get {
+                    return this.columnStatus;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1077,13 +1087,14 @@ namespace CSharpProject1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public AssignmentsTBLRow AddAssignmentsTBLRow(string AssignmentName, int ClassID, System.DateTime DueDate) {
+            public AssignmentsTBLRow AddAssignmentsTBLRow(string AssignmentName, int ClassID, System.DateTime DueDate, string Status) {
                 AssignmentsTBLRow rowAssignmentsTBLRow = ((AssignmentsTBLRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         AssignmentName,
                         ClassID,
-                        DueDate};
+                        DueDate,
+                        Status};
                 rowAssignmentsTBLRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowAssignmentsTBLRow);
                 return rowAssignmentsTBLRow;
@@ -1117,6 +1128,7 @@ namespace CSharpProject1 {
                 this.columnAssignmentName = base.Columns["AssignmentName"];
                 this.columnClassID = base.Columns["ClassID"];
                 this.columnDueDate = base.Columns["DueDate"];
+                this.columnStatus = base.Columns["Status"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1130,6 +1142,8 @@ namespace CSharpProject1 {
                 base.Columns.Add(this.columnClassID);
                 this.columnDueDate = new global::System.Data.DataColumn("DueDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDueDate);
+                this.columnStatus = new global::System.Data.DataColumn("Status", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnStatus);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnAssignmentID}, true));
                 this.columnAssignmentID.AutoIncrement = true;
@@ -1139,6 +1153,7 @@ namespace CSharpProject1 {
                 this.columnAssignmentID.ReadOnly = true;
                 this.columnAssignmentID.Unique = true;
                 this.columnAssignmentName.MaxLength = 50;
+                this.columnStatus.MaxLength = 20;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1849,6 +1864,22 @@ namespace CSharpProject1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Status {
+                get {
+                    try {
+                        return ((string)(this[this.tableAssignmentsTBL.StatusColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Status\' in table \'AssignmentsTBL\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableAssignmentsTBL.StatusColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsAssignmentNameNull() {
                 return this.IsNull(this.tableAssignmentsTBL.AssignmentNameColumn);
             }
@@ -1881,6 +1912,18 @@ namespace CSharpProject1 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetDueDateNull() {
                 this[this.tableAssignmentsTBL.DueDateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsStatusNull() {
+                return this.IsNull(this.tableAssignmentsTBL.StatusColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetStatusNull() {
+                this[this.tableAssignmentsTBL.StatusColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -3158,10 +3201,11 @@ SELECT ClassID, ClassName, UserID FROM ClassesTBL WHERE (ClassID = @ClassID)";
             tableMapping.ColumnMappings.Add("AssignmentName", "AssignmentName");
             tableMapping.ColumnMappings.Add("ClassID", "ClassID");
             tableMapping.ColumnMappings.Add("DueDate", "DueDate");
+            tableMapping.ColumnMappings.Add("Status", "Status");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [AssignmentsTBL] WHERE (([AssignmentID] = @Original_AssignmentID) AND ((@IsNull_AssignmentName = 1 AND [AssignmentName] IS NULL) OR ([AssignmentName] = @Original_AssignmentName)) AND ((@IsNull_ClassID = 1 AND [ClassID] IS NULL) OR ([ClassID] = @Original_ClassID)) AND ((@IsNull_DueDate = 1 AND [DueDate] IS NULL) OR ([DueDate] = @Original_DueDate)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [AssignmentsTBL] WHERE (([AssignmentID] = @Original_AssignmentID) AND ((@IsNull_AssignmentName = 1 AND [AssignmentName] IS NULL) OR ([AssignmentName] = @Original_AssignmentName)) AND ((@IsNull_ClassID = 1 AND [ClassID] IS NULL) OR ([ClassID] = @Original_ClassID)) AND ((@IsNull_DueDate = 1 AND [DueDate] IS NULL) OR ([DueDate] = @Original_DueDate)) AND ((@IsNull_Status = 1 AND [Status] IS NULL) OR ([Status] = @Original_Status)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_AssignmentID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AssignmentID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_AssignmentName", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AssignmentName", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -3170,24 +3214,26 @@ SELECT ClassID, ClassName, UserID FROM ClassesTBL WHERE (ClassID = @ClassID)";
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ClassID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ClassID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_DueDate", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DueDate", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DueDate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DueDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Status", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Status", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Status", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Status", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [AssignmentsTBL] ([AssignmentID], [AssignmentName], [ClassID], [DueDate]) VALUES (@AssignmentID, @AssignmentName, @ClassID, @DueDate);
-SELECT AssignmentID, AssignmentName, ClassID, DueDate FROM AssignmentsTBL WHERE (AssignmentID = @AssignmentID)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [AssignmentsTBL] ([AssignmentName], [ClassID], [DueDate], [Status]) VALUES (@AssignmentName, @ClassID, @DueDate, @Status);
+SELECT AssignmentID, AssignmentName, ClassID, DueDate, Status FROM AssignmentsTBL WHERE (AssignmentID = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AssignmentID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AssignmentID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AssignmentName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AssignmentName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ClassID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ClassID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DueDate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DueDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Status", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [AssignmentsTBL] SET [AssignmentID] = @AssignmentID, [AssignmentName] = @AssignmentName, [ClassID] = @ClassID, [DueDate] = @DueDate WHERE (([AssignmentID] = @Original_AssignmentID) AND ((@IsNull_AssignmentName = 1 AND [AssignmentName] IS NULL) OR ([AssignmentName] = @Original_AssignmentName)) AND ((@IsNull_ClassID = 1 AND [ClassID] IS NULL) OR ([ClassID] = @Original_ClassID)) AND ((@IsNull_DueDate = 1 AND [DueDate] IS NULL) OR ([DueDate] = @Original_DueDate)));
-SELECT AssignmentID, AssignmentName, ClassID, DueDate FROM AssignmentsTBL WHERE (AssignmentID = @AssignmentID)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [AssignmentsTBL] SET [AssignmentName] = @AssignmentName, [ClassID] = @ClassID, [DueDate] = @DueDate, [Status] = @Status WHERE (([AssignmentID] = @Original_AssignmentID) AND ((@IsNull_AssignmentName = 1 AND [AssignmentName] IS NULL) OR ([AssignmentName] = @Original_AssignmentName)) AND ((@IsNull_ClassID = 1 AND [ClassID] IS NULL) OR ([ClassID] = @Original_ClassID)) AND ((@IsNull_DueDate = 1 AND [DueDate] IS NULL) OR ([DueDate] = @Original_DueDate)) AND ((@IsNull_Status = 1 AND [Status] IS NULL) OR ([Status] = @Original_Status)));
+SELECT AssignmentID, AssignmentName, ClassID, DueDate, Status FROM AssignmentsTBL WHERE (AssignmentID = @AssignmentID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AssignmentID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AssignmentID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AssignmentName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AssignmentName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ClassID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ClassID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DueDate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DueDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Status", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_AssignmentID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AssignmentID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_AssignmentName", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AssignmentName", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_AssignmentName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AssignmentName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -3195,6 +3241,9 @@ SELECT AssignmentID, AssignmentName, ClassID, DueDate FROM AssignmentsTBL WHERE 
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ClassID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ClassID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_DueDate", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DueDate", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DueDate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DueDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Status", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Status", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Status", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Status", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AssignmentID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "AssignmentID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3207,24 +3256,32 @@ SELECT AssignmentID, AssignmentName, ClassID, DueDate FROM AssignmentsTBL WHERE 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[4];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT AssignmentsTBL.*\r\nFROM AssignmentsTBL";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT AssignmentID, AssignmentName, ClassID, DueDate FROM AssignmentsTBL WHERE (" +
-                "ClassID = @ClassID) AND (DueDate <= @Date)";
+            this._commandCollection[1].CommandText = "SELECT AssignmentID, AssignmentName, ClassID, DueDate, Status FROM AssignmentsTBL" +
+                " WHERE (ClassID = @ClassID) AND (DueDate <= @Date)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ClassID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ClassID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Date", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "DueDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "SELECT AssignmentID, AssignmentName, ClassID, DueDate FROM AssignmentsTBL WHERE (" +
-                "ClassID = @ClassID)";
+            this._commandCollection[2].CommandText = "SELECT AssignmentID, AssignmentName, ClassID, DueDate, Status FROM AssignmentsTBL" +
+                " WHERE (ClassID = @ClassID)";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ClassID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ClassID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[3].Connection = this.Connection;
+            this._commandCollection[3].CommandText = "UPDATE [AssignmentsTBL] SET [Status] = @Status \r\nWHERE AssignmentName = @Assignme" +
+                "ntName AND ClassID = @ClassID\r\n";
+            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Status", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "Status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AssignmentName", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "AssignmentName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ClassID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ClassID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3368,7 +3425,7 @@ SELECT AssignmentID, AssignmentName, ClassID, DueDate FROM AssignmentsTBL WHERE 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_AssignmentID, string Original_AssignmentName, global::System.Nullable<int> Original_ClassID, global::System.Nullable<global::System.DateTime> Original_DueDate) {
+        public virtual int Delete(int Original_AssignmentID, string Original_AssignmentName, global::System.Nullable<int> Original_ClassID, global::System.Nullable<global::System.DateTime> Original_DueDate, string Original_Status) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_AssignmentID));
             if ((Original_AssignmentName == null)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
@@ -3394,6 +3451,14 @@ SELECT AssignmentID, AssignmentName, ClassID, DueDate FROM AssignmentsTBL WHERE 
                 this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
+            if ((Original_Status == null)) {
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((string)(Original_Status));
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -3414,25 +3479,30 @@ SELECT AssignmentID, AssignmentName, ClassID, DueDate FROM AssignmentsTBL WHERE 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int AssignmentID, string AssignmentName, global::System.Nullable<int> ClassID, global::System.Nullable<global::System.DateTime> DueDate) {
-            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(AssignmentID));
+        public virtual int Insert(string AssignmentName, global::System.Nullable<int> ClassID, global::System.Nullable<global::System.DateTime> DueDate, string Status) {
             if ((AssignmentName == null)) {
-                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
+                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(AssignmentName));
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(AssignmentName));
             }
             if ((ClassID.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((int)(ClassID.Value));
+                this.Adapter.InsertCommand.Parameters[1].Value = ((int)(ClassID.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((DueDate.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((System.DateTime)(DueDate.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
-            if ((DueDate.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((System.DateTime)(DueDate.Value));
+            if ((Status == null)) {
+                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
+                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(Status));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -3454,25 +3524,30 @@ SELECT AssignmentID, AssignmentName, ClassID, DueDate FROM AssignmentsTBL WHERE 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int AssignmentID, string AssignmentName, global::System.Nullable<int> ClassID, global::System.Nullable<global::System.DateTime> DueDate, int Original_AssignmentID, string Original_AssignmentName, global::System.Nullable<int> Original_ClassID, global::System.Nullable<global::System.DateTime> Original_DueDate) {
-            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(AssignmentID));
+        public virtual int Update(string AssignmentName, global::System.Nullable<int> ClassID, global::System.Nullable<global::System.DateTime> DueDate, string Status, int Original_AssignmentID, string Original_AssignmentName, global::System.Nullable<int> Original_ClassID, global::System.Nullable<global::System.DateTime> Original_DueDate, string Original_Status, int AssignmentID) {
             if ((AssignmentName == null)) {
-                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(AssignmentName));
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(AssignmentName));
             }
             if ((ClassID.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(ClassID.Value));
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(ClassID.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((DueDate.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((System.DateTime)(DueDate.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
-            if ((DueDate.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((System.DateTime)(DueDate.Value));
+            if ((Status == null)) {
+                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Status));
             }
             this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_AssignmentID));
             if ((Original_AssignmentName == null)) {
@@ -3499,6 +3574,15 @@ SELECT AssignmentID, AssignmentName, ClassID, DueDate FROM AssignmentsTBL WHERE 
                 this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
+            if ((Original_Status == null)) {
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_Status));
+            }
+            this.Adapter.UpdateCommand.Parameters[13].Value = ((int)(AssignmentID));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -3519,8 +3603,49 @@ SELECT AssignmentID, AssignmentName, ClassID, DueDate FROM AssignmentsTBL WHERE 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string AssignmentName, global::System.Nullable<int> ClassID, global::System.Nullable<global::System.DateTime> DueDate, int Original_AssignmentID, string Original_AssignmentName, global::System.Nullable<int> Original_ClassID, global::System.Nullable<global::System.DateTime> Original_DueDate) {
-            return this.Update(Original_AssignmentID, AssignmentName, ClassID, DueDate, Original_AssignmentID, Original_AssignmentName, Original_ClassID, Original_DueDate);
+        public virtual int Update(string AssignmentName, global::System.Nullable<int> ClassID, global::System.Nullable<global::System.DateTime> DueDate, string Status, int Original_AssignmentID, string Original_AssignmentName, global::System.Nullable<int> Original_ClassID, global::System.Nullable<global::System.DateTime> Original_DueDate, string Original_Status) {
+            return this.Update(AssignmentName, ClassID, DueDate, Status, Original_AssignmentID, Original_AssignmentName, Original_ClassID, Original_DueDate, Original_Status, Original_AssignmentID);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
+        public virtual int UpdateStatus(string Status, string AssignmentName, global::System.Nullable<int> ClassID) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[3];
+            if ((Status == null)) {
+                command.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[0].Value = ((string)(Status));
+            }
+            if ((AssignmentName == null)) {
+                command.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[1].Value = ((string)(AssignmentName));
+            }
+            if ((ClassID.HasValue == true)) {
+                command.Parameters[2].Value = ((int)(ClassID.Value));
+            }
+            else {
+                command.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
         }
     }
     

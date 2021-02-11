@@ -23,8 +23,10 @@ namespace CSharpProject1
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'dataSet11.AssignmentsTBL' table. You can move, or remove it, as needed.
+            //this.assignmentsTBLTableAdapter.Fill(this.dataSet11.AssignmentsTBL);
             // TODO: This line of code loads data into the 'dataSet11.AssignmentRecordsTBL' table. You can move, or remove it, as needed.
-            
+
             // TODO: This line of code loads data into the 'dataSet1.ClassesTBL' table. You can move, or remove it, as needed.
 
 
@@ -73,32 +75,49 @@ namespace CSharpProject1
         private void metroButton5_Click(object sender, EventArgs e)
         {
             // Check if records exists, if yes load for editing. If not, create record and load for edit
-            AssignmentRecordsTBLTableAdapter ada = new AssignmentRecordsTBLTableAdapter();
-            DataTable dt = ada.GetDataBy((int)metroComboBox1.SelectedValue, dateTimePicker1.Text);
-
+            //AssignmentRecordsTBLTableAdapter ada = new AssignmentRecordsTBLTableAdapter();
+            //DataTable dt = ada.GetDataBy((int)metroComboBox1.SelectedValue, dateTimePicker1.Text);
+            AssignmentsTBLTableAdapter ada = new AssignmentsTBLTableAdapter();
+            DataTable dt = ada.GetDataByClassDate((int)metroComboBox1.SelectedValue, dateTimePicker1.Text);
             if(dt.Rows.Count > 0)
             {
                 // Records are present
-                DataTable dt_pres = ada.GetDataBy((int)metroComboBox1.SelectedValue, dateTimePicker1.Text);
-                dataGridView1.DataSource = dt_pres;
+                //DataTable dt_pres = //ada.GetDataBy((int)metroComboBox1.SelectedValue, dateTimePicker1.Text);
+                foreach(DataRow row in dt.Rows)
+                {
+                    if (DateTime.Parse(row[3].ToString()) < System.DateTime.Now && row[4].ToString() != "Complete")
+                    {
+                        // Mark as late
+                        ada.UpdateStatus("Late", row[1].ToString(), (int) row[2]);
+                        dt = ada.GetDataByClassDate((int)metroComboBox1.SelectedValue, dateTimePicker1.Text);
+                    }
+
+                    else if (DateTime.Parse(row[3].ToString()) > System.DateTime.Now && row[4] == null)
+                    {
+                        // Mark as late
+                        ada.UpdateStatus("In Progress", row[1].ToString(), (int)row[2]);
+                        dt = ada.GetDataByClassDate((int)metroComboBox1.SelectedValue, dateTimePicker1.Text);
+                    }
+                }
+                dataGridView1.DataSource = dt;
             }
             else
             {
                 // Create a record for each assignment
 
                 // Get the class assignment list
-                AssignmentsTBLTableAdapter assignment_ada = new AssignmentsTBLTableAdapter();
-                DataTable dt_Assignments = assignment_ada.GetDataByClassID((int)metroComboBox1.SelectedValue);
-
-                foreach(DataRow row in dt_Assignments.Rows)
-                {
-                    // Insert a new record for this assignment
-                    ada.InsertQuery((int)row[0], (int)metroComboBox1.SelectedValue, dateTimePicker1.Text, "", row[1].ToString(), metroComboBox1.Text);
+                // AssignmentsTBLTableAdapter assignment_ada = new AssignmentsTBLTableAdapter();
+                //DataTable dt_Assignments = assignment_ada.GetDataByClassDate((int)metroComboBox1.SelectedValue, dateTimePicker1.Text);
+                MessageBox.Show("No assignments present");
+                //foreach(DataRow row in dt_Assignments.Rows)
+                //{
+                //    // Insert a new record for this assignment
+                //    ada.InsertQuery((int)row[0], (int)metroComboBox1.SelectedValue, dateTimePicker1.Text, "", row[1].ToString(), metroComboBox1.Text);
                 
-                }
+                //}
 
-                DataTable dt_new = ada.GetDataBy((int)metroComboBox1.SelectedValue, dateTimePicker1.Text);
-                dataGridView1.DataSource = dt_new;
+               // DataTable dt_new = ada.GetDataBy((int)metroComboBox1.SelectedValue, dateTimePicker1.Text);
+                //dataGridView1.DataSource = dt_new;
             }
             //this.assignmentRecordsTBLTableAdapter.Fill(this.dataSet11.AssignmentRecordsTBL);
         }
