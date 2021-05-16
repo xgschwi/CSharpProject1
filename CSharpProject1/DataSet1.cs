@@ -12,6 +12,10 @@
 
 namespace CSharpProject1.DataSet1TableAdapters
 {
+    partial class AssignmentRecordsTBLTableAdapter
+    {
+    }
+
     partial class AssignmentsTBLTableAdapter
     {
     }

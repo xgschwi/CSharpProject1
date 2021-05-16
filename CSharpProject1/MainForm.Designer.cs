@@ -42,6 +42,7 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.DueDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.assignmentNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.assignmentsTBLBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataSet11 = new CSharpProject1.DataSet1();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
@@ -56,7 +57,6 @@
             this.classesTBLTableAdapter = new CSharpProject1.DataSet1TableAdapters.ClassesTBLTableAdapter();
             this.assignmentRecordsTBLTableAdapter = new CSharpProject1.DataSet1TableAdapters.AssignmentRecordsTBLTableAdapter();
             this.assignmentsTBLTableAdapter = new CSharpProject1.DataSet1TableAdapters.AssignmentsTBLTableAdapter();
-            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.metroTabControl1.SuspendLayout();
             this.metroTabPage1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -177,6 +177,7 @@
             this.metroButton1.TabIndex = 7;
             this.metroButton1.Text = "Save";
             this.metroButton1.UseSelectable = true;
+            this.metroButton1.Click += new System.EventHandler(this.metroButton1_Click);
             // 
             // dataGridView1
             // 
@@ -209,6 +210,14 @@
             this.assignmentNameDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.assignmentNameDataGridViewTextBoxColumn.Name = "assignmentNameDataGridViewTextBoxColumn";
             this.assignmentNameDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // Status
+            // 
+            this.Status.DataPropertyName = "Status";
+            this.Status.HeaderText = "Status";
+            this.Status.MinimumWidth = 6;
+            this.Status.Name = "Status";
+            this.Status.Width = 125;
             // 
             // assignmentsTBLBindingSource
             // 
@@ -304,14 +313,6 @@
             // assignmentsTBLTableAdapter
             // 
             this.assignmentsTBLTableAdapter.ClearBeforeFill = true;
-            // 
-            // Status
-            // 
-            this.Status.DataPropertyName = "Status";
-            this.Status.HeaderText = "Status";
-            this.Status.MinimumWidth = 6;
-            this.Status.Name = "Status";
-            this.Status.Width = 125;
             // 
             // MainForm
             // 

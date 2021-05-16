@@ -121,5 +121,17 @@ namespace CSharpProject1
             }
             //this.assignmentRecordsTBLTableAdapter.Fill(this.dataSet11.AssignmentRecordsTBL);
         }
+
+        private void metroButton1_Click(object sender, EventArgs e)
+        {
+            AssignmentsTBLTableAdapter ada = new AssignmentsTBLTableAdapter();
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                if(row.Cells[0].Value != null)
+                {
+                    ada.UpdateQuery(row.Cells[0].Value.ToString(), row.Cells[1].Value.ToString());
+                }
+            }
+        }
     }
 }
