@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.metroTabControl1 = new MetroFramework.Controls.MetroTabControl();
             this.metroTabPage1 = new MetroFramework.Controls.MetroTabPage();
             this.metroButton5 = new MetroFramework.Controls.MetroButton();
@@ -77,12 +78,13 @@
             this.metroTabControl1.Location = new System.Drawing.Point(20, 60);
             this.metroTabControl1.Name = "metroTabControl1";
             this.metroTabControl1.SelectedIndex = 0;
-            this.metroTabControl1.Size = new System.Drawing.Size(760, 512);
+            this.metroTabControl1.Size = new System.Drawing.Size(776, 526);
             this.metroTabControl1.TabIndex = 0;
             this.metroTabControl1.UseSelectable = true;
             // 
             // metroTabPage1
             // 
+            this.metroTabPage1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.metroTabPage1.Controls.Add(this.metroButton5);
             this.metroTabPage1.Controls.Add(this.statusStrip1);
             this.metroTabPage1.Controls.Add(this.metroButton4);
@@ -99,20 +101,22 @@
             this.metroTabPage1.HorizontalScrollbarSize = 10;
             this.metroTabPage1.Location = new System.Drawing.Point(4, 38);
             this.metroTabPage1.Name = "metroTabPage1";
-            this.metroTabPage1.Size = new System.Drawing.Size(752, 470);
+            this.metroTabPage1.Size = new System.Drawing.Size(768, 484);
             this.metroTabPage1.TabIndex = 0;
             this.metroTabPage1.Text = "Assignment Viewer   ";
             this.metroTabPage1.VerticalScrollbarBarColor = true;
             this.metroTabPage1.VerticalScrollbarHighlightOnWheel = false;
             this.metroTabPage1.VerticalScrollbarSize = 10;
+            this.metroTabPage1.Click += new System.EventHandler(this.metroTabPage1_Click);
             // 
             // metroButton5
             // 
-            this.metroButton5.Location = new System.Drawing.Point(500, 44);
+            this.metroButton5.Location = new System.Drawing.Point(484, 45);
             this.metroButton5.Name = "metroButton5";
-            this.metroButton5.Size = new System.Drawing.Size(75, 23);
+            this.metroButton5.Size = new System.Drawing.Size(136, 23);
             this.metroButton5.TabIndex = 12;
-            this.metroButton5.Text = "Get Values";
+            this.metroButton5.Text = "Get Assignments";
+            this.metroButton5.UseCustomBackColor = true;
             this.metroButton5.UseSelectable = true;
             this.metroButton5.Click += new System.EventHandler(this.metroButton5_Click);
             // 
@@ -122,9 +126,9 @@
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1,
             this.statlblUser});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 444);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 458);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(752, 26);
+            this.statusStrip1.Size = new System.Drawing.Size(768, 26);
             this.statusStrip1.TabIndex = 11;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -142,53 +146,63 @@
             // 
             // metroButton4
             // 
-            this.metroButton4.Location = new System.Drawing.Point(642, 73);
+            this.metroButton4.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.metroButton4.Location = new System.Drawing.Point(650, 274);
             this.metroButton4.Name = "metroButton4";
             this.metroButton4.Size = new System.Drawing.Size(122, 23);
             this.metroButton4.TabIndex = 10;
             this.metroButton4.Text = "Add Assignments";
+            this.metroButton4.UseCustomBackColor = true;
             this.metroButton4.UseSelectable = true;
             this.metroButton4.Click += new System.EventHandler(this.metroButton4_Click);
             // 
             // metroButton3
             // 
-            this.metroButton3.Location = new System.Drawing.Point(642, 44);
+            this.metroButton3.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.metroButton3.Location = new System.Drawing.Point(650, 245);
             this.metroButton3.Name = "metroButton3";
-            this.metroButton3.Size = new System.Drawing.Size(114, 23);
+            this.metroButton3.Size = new System.Drawing.Size(122, 23);
             this.metroButton3.TabIndex = 9;
             this.metroButton3.Text = "Add Class";
+            this.metroButton3.UseCustomBackColor = true;
             this.metroButton3.UseSelectable = true;
             this.metroButton3.Click += new System.EventHandler(this.metroButton3_Click);
             // 
             // metroButton2
             // 
-            this.metroButton2.Location = new System.Drawing.Point(465, 150);
+            this.metroButton2.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.metroButton2.Location = new System.Drawing.Point(465, 422);
             this.metroButton2.Name = "metroButton2";
             this.metroButton2.Size = new System.Drawing.Size(75, 23);
             this.metroButton2.TabIndex = 8;
             this.metroButton2.Text = "Clear";
+            this.metroButton2.UseCustomBackColor = true;
             this.metroButton2.UseSelectable = true;
             // 
             // metroButton1
             // 
-            this.metroButton1.Location = new System.Drawing.Point(465, 106);
+            this.metroButton1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.metroButton1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.metroButton1.Location = new System.Drawing.Point(465, 372);
             this.metroButton1.Name = "metroButton1";
             this.metroButton1.Size = new System.Drawing.Size(75, 23);
             this.metroButton1.TabIndex = 7;
             this.metroButton1.Text = "Save";
+            this.metroButton1.UseCustomBackColor = true;
             this.metroButton1.UseSelectable = true;
             this.metroButton1.Click += new System.EventHandler(this.metroButton1_Click);
             // 
             // dataGridView1
             // 
             this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.DueDate,
             this.assignmentNameDataGridViewTextBoxColumn,
             this.Status});
             this.dataGridView1.DataSource = this.assignmentsTBLBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 89);
+            this.dataGridView1.Location = new System.Drawing.Point(3, 87);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
@@ -232,11 +246,11 @@
             // metroLabel2
             // 
             this.metroLabel2.AutoSize = true;
-            this.metroLabel2.Location = new System.Drawing.Point(227, 13);
+            this.metroLabel2.Location = new System.Drawing.Point(201, 13);
             this.metroLabel2.Name = "metroLabel2";
-            this.metroLabel2.Size = new System.Drawing.Size(176, 20);
+            this.metroLabel2.Size = new System.Drawing.Size(165, 20);
             this.metroLabel2.TabIndex = 5;
-            this.metroLabel2.Text = "Select Maximum Due Date:";
+            this.metroLabel2.Text = "Select Date to View From";
             // 
             // metroLabel1
             // 
@@ -250,13 +264,14 @@
             // dateTimePicker1
             // 
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(227, 44);
+            this.dateTimePicker1.Location = new System.Drawing.Point(201, 45);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(250, 22);
             this.dateTimePicker1.TabIndex = 3;
             // 
             // metroComboBox1
             // 
+            this.metroComboBox1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.metroComboBox1.DataSource = this.classesTBLBindingSource;
             this.metroComboBox1.DisplayMember = "ClassName";
             this.metroComboBox1.FormattingEnabled = true;
@@ -318,10 +333,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 592);
+            this.ClientSize = new System.Drawing.Size(816, 606);
             this.Controls.Add(this.metroTabControl1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.Text = "Assignment System";
+            this.TransparencyKey = System.Drawing.Color.LavenderBlush;
             this.Activated += new System.EventHandler(this.MainForm_Activated);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.metroTabControl1.ResumeLayout(false);

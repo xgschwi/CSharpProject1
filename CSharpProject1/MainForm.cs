@@ -125,13 +125,25 @@ namespace CSharpProject1
         private void metroButton1_Click(object sender, EventArgs e)
         {
             AssignmentsTBLTableAdapter ada = new AssignmentsTBLTableAdapter();
+            ClassesTBLTableAdapter clada = new ClassesTBLTableAdapter();
+          //  int id = clada.GetClassID(metroComboBox1.SelectedValue.ToString());
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
                 if(row.Cells[0].Value != null)
                 {
-                    ada.UpdateQuery(row.Cells[0].Value.ToString(), row.Cells[1].Value.ToString());
+                    ada.UpdateQuery(row.Cells[0].Value.ToString(), row.Cells[1].Value.ToString(), (int)metroComboBox1.SelectedValue);
+                }
+
+                if(row.Cells[2].Value != null && row.Cells[2].Value.ToString() != "Late")
+                {
+                    ada.UpdateStatus(row.Cells[2].Value.ToString(), row.Cells[1].Value.ToString(), (int)metroComboBox1.SelectedValue);
                 }
             }
+        }
+
+        private void metroTabPage1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
