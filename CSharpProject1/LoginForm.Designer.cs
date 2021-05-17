@@ -109,32 +109,39 @@
             this.passText.UseSelectable = true;
             this.passText.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.passText.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.passText.KeyDown += new System.Windows.Forms.KeyEventHandler(this.passText_KeyDown);
             // 
             // metroLabelUser
             // 
             this.metroLabelUser.AutoSize = true;
+            this.metroLabelUser.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.metroLabelUser.Location = new System.Drawing.Point(53, 195);
             this.metroLabelUser.Name = "metroLabelUser";
             this.metroLabelUser.Size = new System.Drawing.Size(42, 20);
             this.metroLabelUser.TabIndex = 9;
             this.metroLabelUser.Text = "User:";
+            this.metroLabelUser.UseCustomBackColor = true;
             // 
             // metroLabelPass
             // 
             this.metroLabelPass.AutoSize = true;
+            this.metroLabelPass.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.metroLabelPass.Location = new System.Drawing.Point(53, 270);
             this.metroLabelPass.Name = "metroLabelPass";
             this.metroLabelPass.Size = new System.Drawing.Size(69, 20);
             this.metroLabelPass.TabIndex = 10;
             this.metroLabelPass.Text = "Password:";
+            this.metroLabelPass.UseCustomBackColor = true;
             // 
             // loginBtn
             // 
+            this.loginBtn.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.loginBtn.Location = new System.Drawing.Point(138, 369);
             this.loginBtn.Name = "loginBtn";
             this.loginBtn.Size = new System.Drawing.Size(75, 23);
             this.loginBtn.TabIndex = 11;
             this.loginBtn.Text = "Login";
+            this.loginBtn.UseCustomBackColor = true;
             this.loginBtn.UseSelectable = true;
             this.loginBtn.Click += new System.EventHandler(this.loginBtn_Click);
             // 

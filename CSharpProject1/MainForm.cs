@@ -53,17 +53,27 @@ namespace CSharpProject1
                     this.classesTBLTableAdapter.Fill(this.dataSet1.ClassesTBL);
 
                     classesTBLBindingSource.Filter = "UserID = '" + UserID.ToString() + "'";
+                    dateTimePicker1.Value = DateTime.Today.AddDays(-7);
                 }
             }
         }
 
+        // Add A Class
         private void metroButton3_Click(object sender, EventArgs e)
         {
-            FormAddClass addClass = new FormAddClass();
+            ManageClassForm addClass = new ManageClassForm();
             addClass.UserID = this.UserID;
             addClass.ShowDialog();
-        }
 
+            // Updates Classes to choose from in Main Form
+            metroComboBox1.DataSource = null;
+            ClassesTBLTableAdapter clada = new ClassesTBLTableAdapter();
+            metroComboBox1.DataSource = clada.GetData();
+            metroComboBox1.DisplayMember = "ClassName";
+        }
+        
+
+        // Add an assignment for the currently selected Class
         private void metroButton4_Click(object sender, EventArgs e)
         {
             AssignmentForm assignments = new AssignmentForm();
@@ -72,11 +82,11 @@ namespace CSharpProject1
             assignments.ShowDialog();
         }
 
+        // Saving Changes to Assignments Data
         private void metroButton5_Click(object sender, EventArgs e)
         {
             // Check if records exists, if yes load for editing. If not, create record and load for edit
-            //AssignmentRecordsTBLTableAdapter ada = new AssignmentRecordsTBLTableAdapter();
-            //DataTable dt = ada.GetDataBy((int)metroComboBox1.SelectedValue, dateTimePicker1.Text);
+           
             AssignmentsTBLTableAdapter ada = new AssignmentsTBLTableAdapter();
             DataTable dt = ada.GetDataByClassDate((int)metroComboBox1.SelectedValue, dateTimePicker1.Text);
             if(dt.Rows.Count > 0)
@@ -145,5 +155,11 @@ namespace CSharpProject1
         {
 
         }
+
+        private void metroComboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

@@ -69,11 +69,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </Compile>
-    <Compile Include="FormAddClass.cs">
+    <Compile Include="ManageClassForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormAddClass.Designer.cs">
-      <DependentUpon>FormAddClass.cs</DependentUpon>
+    <Compile Include="ManageClassForm.Designer.cs">
+      <DependentUpon>ManageClassForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -92,8 +92,8 @@
     <EmbeddedResource Include="AssignmentForm.resx">
       <DependentUpon>AssignmentForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormAddClass.resx">
-      <DependentUpon>FormAddClass.cs</DependentUpon>
+    <EmbeddedResource Include="ManageClassForm.resx">
+      <DependentUpon>ManageClassForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

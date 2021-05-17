@@ -1,6 +1,6 @@
 ﻿namespace CSharpProject1
 {
-    partial class FormAddClass
+    partial class ManageClassForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAddClass));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManageClassForm));
             this.metroTextBox1 = new MetroFramework.Controls.MetroTextBox();
             this.metroButton1 = new MetroFramework.Controls.MetroButton();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
@@ -66,24 +66,28 @@
             // 
             // metroButton1
             // 
+            this.metroButton1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.metroButton1.Location = new System.Drawing.Point(291, 136);
             this.metroButton1.Name = "metroButton1";
             this.metroButton1.Size = new System.Drawing.Size(106, 25);
             this.metroButton1.TabIndex = 1;
             this.metroButton1.Text = "Accept";
+            this.metroButton1.UseCustomBackColor = true;
             this.metroButton1.UseSelectable = true;
             this.metroButton1.Click += new System.EventHandler(this.metroButton1_Click);
             // 
             // metroLabel1
             // 
             this.metroLabel1.AutoSize = true;
+            this.metroLabel1.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.metroLabel1.Location = new System.Drawing.Point(119, 72);
             this.metroLabel1.Name = "metroLabel1";
             this.metroLabel1.Size = new System.Drawing.Size(85, 20);
             this.metroLabel1.TabIndex = 2;
             this.metroLabel1.Text = "Class Name:";
+            this.metroLabel1.UseCustomBackColor = true;
             // 
-            // FormAddClass
+            // ManageClassForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -93,9 +97,10 @@
             this.Controls.Add(this.metroTextBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "FormAddClass";
+            this.Name = "ManageClassForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Add Class";
+            this.Text = "Class Manager";
+            this.Load += new System.EventHandler(this.FormAddClass_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

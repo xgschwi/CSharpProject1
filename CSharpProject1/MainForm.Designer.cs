@@ -53,7 +53,6 @@
             this.classesTBLBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataSet1BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataSet1 = new CSharpProject1.DataSet1();
-            this.metroTabPage2 = new MetroFramework.Controls.MetroTabPage();
             this.assignmentRecordsTBLBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.classesTBLTableAdapter = new CSharpProject1.DataSet1TableAdapters.ClassesTBLTableAdapter();
             this.assignmentRecordsTBLTableAdapter = new CSharpProject1.DataSet1TableAdapters.AssignmentRecordsTBLTableAdapter();
@@ -73,18 +72,17 @@
             // metroTabControl1
             // 
             this.metroTabControl1.Controls.Add(this.metroTabPage1);
-            this.metroTabControl1.Controls.Add(this.metroTabPage2);
             this.metroTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.metroTabControl1.Location = new System.Drawing.Point(20, 60);
             this.metroTabControl1.Name = "metroTabControl1";
             this.metroTabControl1.SelectedIndex = 0;
-            this.metroTabControl1.Size = new System.Drawing.Size(776, 526);
+            this.metroTabControl1.Size = new System.Drawing.Size(789, 526);
             this.metroTabControl1.TabIndex = 0;
             this.metroTabControl1.UseSelectable = true;
             // 
             // metroTabPage1
             // 
-            this.metroTabPage1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.metroTabPage1.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.metroTabPage1.Controls.Add(this.metroButton5);
             this.metroTabPage1.Controls.Add(this.statusStrip1);
             this.metroTabPage1.Controls.Add(this.metroButton4);
@@ -101,9 +99,10 @@
             this.metroTabPage1.HorizontalScrollbarSize = 10;
             this.metroTabPage1.Location = new System.Drawing.Point(4, 38);
             this.metroTabPage1.Name = "metroTabPage1";
-            this.metroTabPage1.Size = new System.Drawing.Size(768, 484);
+            this.metroTabPage1.Size = new System.Drawing.Size(781, 484);
             this.metroTabPage1.TabIndex = 0;
             this.metroTabPage1.Text = "Assignment Viewer   ";
+            this.metroTabPage1.UseCustomBackColor = true;
             this.metroTabPage1.VerticalScrollbarBarColor = true;
             this.metroTabPage1.VerticalScrollbarHighlightOnWheel = false;
             this.metroTabPage1.VerticalScrollbarSize = 10;
@@ -111,6 +110,7 @@
             // 
             // metroButton5
             // 
+            this.metroButton5.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.metroButton5.Location = new System.Drawing.Point(484, 45);
             this.metroButton5.Name = "metroButton5";
             this.metroButton5.Size = new System.Drawing.Size(136, 23);
@@ -128,7 +128,7 @@
             this.statlblUser});
             this.statusStrip1.Location = new System.Drawing.Point(0, 458);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(768, 26);
+            this.statusStrip1.Size = new System.Drawing.Size(781, 26);
             this.statusStrip1.TabIndex = 11;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -147,7 +147,7 @@
             // metroButton4
             // 
             this.metroButton4.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.metroButton4.Location = new System.Drawing.Point(650, 274);
+            this.metroButton4.Location = new System.Drawing.Point(646, 168);
             this.metroButton4.Name = "metroButton4";
             this.metroButton4.Size = new System.Drawing.Size(122, 23);
             this.metroButton4.TabIndex = 10;
@@ -159,7 +159,7 @@
             // metroButton3
             // 
             this.metroButton3.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.metroButton3.Location = new System.Drawing.Point(650, 245);
+            this.metroButton3.Location = new System.Drawing.Point(646, 114);
             this.metroButton3.Name = "metroButton3";
             this.metroButton3.Size = new System.Drawing.Size(122, 23);
             this.metroButton3.TabIndex = 9;
@@ -251,15 +251,18 @@
             this.metroLabel2.Size = new System.Drawing.Size(165, 20);
             this.metroLabel2.TabIndex = 5;
             this.metroLabel2.Text = "Select Date to View From";
+            this.metroLabel2.UseCustomBackColor = true;
             // 
             // metroLabel1
             // 
             this.metroLabel1.AutoSize = true;
-            this.metroLabel1.Location = new System.Drawing.Point(0, 13);
+            this.metroLabel1.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.metroLabel1.Location = new System.Drawing.Point(3, 13);
             this.metroLabel1.Name = "metroLabel1";
             this.metroLabel1.Size = new System.Drawing.Size(84, 20);
             this.metroLabel1.TabIndex = 4;
             this.metroLabel1.Text = "Select Class:";
+            this.metroLabel1.UseCustomBackColor = true;
             // 
             // dateTimePicker1
             // 
@@ -276,12 +279,13 @@
             this.metroComboBox1.DisplayMember = "ClassName";
             this.metroComboBox1.FormattingEnabled = true;
             this.metroComboBox1.ItemHeight = 24;
-            this.metroComboBox1.Location = new System.Drawing.Point(3, 36);
+            this.metroComboBox1.Location = new System.Drawing.Point(3, 45);
             this.metroComboBox1.Name = "metroComboBox1";
             this.metroComboBox1.Size = new System.Drawing.Size(168, 30);
             this.metroComboBox1.TabIndex = 2;
             this.metroComboBox1.UseSelectable = true;
             this.metroComboBox1.ValueMember = "ClassID";
+            this.metroComboBox1.SelectedIndexChanged += new System.EventHandler(this.metroComboBox1_SelectedIndexChanged);
             // 
             // classesTBLBindingSource
             // 
@@ -297,20 +301,6 @@
             // 
             this.dataSet1.DataSetName = "DataSet1";
             this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // metroTabPage2
-            // 
-            this.metroTabPage2.HorizontalScrollbarBarColor = true;
-            this.metroTabPage2.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroTabPage2.HorizontalScrollbarSize = 10;
-            this.metroTabPage2.Location = new System.Drawing.Point(4, 38);
-            this.metroTabPage2.Name = "metroTabPage2";
-            this.metroTabPage2.Size = new System.Drawing.Size(752, 470);
-            this.metroTabPage2.TabIndex = 1;
-            this.metroTabPage2.Text = "Reports";
-            this.metroTabPage2.VerticalScrollbarBarColor = true;
-            this.metroTabPage2.VerticalScrollbarHighlightOnWheel = false;
-            this.metroTabPage2.VerticalScrollbarSize = 10;
             // 
             // assignmentRecordsTBLBindingSource
             // 
@@ -333,7 +323,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(816, 606);
+            this.ClientSize = new System.Drawing.Size(829, 606);
             this.Controls.Add(this.metroTabControl1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
@@ -370,7 +360,6 @@
         private MetroFramework.Controls.MetroLabel metroLabel1;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private MetroFramework.Controls.MetroComboBox metroComboBox1;
-        private MetroFramework.Controls.MetroTabPage metroTabPage2;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.ToolStripStatusLabel statlblUser;

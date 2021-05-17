@@ -49,5 +49,13 @@ namespace CSharpProject1
         {
 
         }
+
+        private void passText_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                loginBtn.PerformClick();
+            }
+        }
     }
 }

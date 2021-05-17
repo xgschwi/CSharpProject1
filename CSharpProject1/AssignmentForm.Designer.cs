@@ -53,6 +53,7 @@
             // dataGridView1
             // 
             this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.assignmentIDDataGridViewTextBoxColumn,
@@ -157,11 +158,13 @@
             // 
             // metroButton1
             // 
+            this.metroButton1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.metroButton1.Location = new System.Drawing.Point(446, 382);
             this.metroButton1.Name = "metroButton1";
             this.metroButton1.Size = new System.Drawing.Size(96, 23);
             this.metroButton1.TabIndex = 5;
             this.metroButton1.Text = "Save";
+            this.metroButton1.UseCustomBackColor = true;
             this.metroButton1.UseSelectable = true;
             this.metroButton1.Click += new System.EventHandler(this.metroButton1_Click);
             // 
@@ -171,22 +174,29 @@
             // 
             // metroTextBox1
             // 
+            this.metroTextBox1.BackColor = System.Drawing.SystemColors.ButtonFace;
             // 
             // 
             // 
             this.metroTextBox1.CustomButton.Image = null;
-            this.metroTextBox1.CustomButton.Location = new System.Drawing.Point(-138, 1);
+            this.metroTextBox1.CustomButton.Location = new System.Drawing.Point(-62, 2);
             this.metroTextBox1.CustomButton.Name = "";
-            this.metroTextBox1.CustomButton.Size = new System.Drawing.Size(213, 213);
+            this.metroTextBox1.CustomButton.Size = new System.Drawing.Size(135, 135);
             this.metroTextBox1.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.metroTextBox1.CustomButton.TabIndex = 1;
             this.metroTextBox1.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.metroTextBox1.CustomButton.UseSelectable = true;
             this.metroTextBox1.CustomButton.Visible = false;
             this.metroTextBox1.Lines = new string[] {
-        "Statuses:     _____________                       In Progress                    " +
-            "    Late                                       Complete"};
-            this.metroTextBox1.Location = new System.Drawing.Point(549, 56);
+        "Statuses:",
+        "___________",
+        "",
+        "In Progress",
+        "",
+        "Complete",
+        "",
+        "Late"};
+            this.metroTextBox1.Location = new System.Drawing.Point(551, 139);
             this.metroTextBox1.MaxLength = 32767;
             this.metroTextBox1.Multiline = true;
             this.metroTextBox1.Name = "metroTextBox1";
@@ -196,10 +206,11 @@
             this.metroTextBox1.SelectionLength = 0;
             this.metroTextBox1.SelectionStart = 0;
             this.metroTextBox1.ShortcutsEnabled = true;
-            this.metroTextBox1.Size = new System.Drawing.Size(76, 215);
+            this.metroTextBox1.Size = new System.Drawing.Size(76, 140);
             this.metroTextBox1.TabIndex = 6;
-            this.metroTextBox1.Text = "Statuses:     _____________                       In Progress                    " +
-    "    Late                                       Complete";
+            this.metroTextBox1.Text = "Statuses:\r\n___________\r\n\r\nIn Progress\r\n\r\nComplete\r\n\r\nLate";
+            this.metroTextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.metroTextBox1.UseCustomBackColor = true;
             this.metroTextBox1.UseSelectable = true;
             this.metroTextBox1.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.metroTextBox1.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);

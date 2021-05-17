@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace CSharpProject1
 {
-    public partial class FormAddClass : Form
+    public partial class ManageClassForm : Form
     {
         public int UserID { get; set; }
-        public FormAddClass()
+        public ManageClassForm()
         {
             InitializeComponent();
         }
@@ -23,6 +23,11 @@ namespace CSharpProject1
             DataSet1TableAdapters.ClassesTBLTableAdapter ada = new DataSet1TableAdapters.ClassesTBLTableAdapter();
             ada.AddClass(metroTextBox1.Text, UserID);
             Close();
+        }
+
+        private void FormAddClass_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
