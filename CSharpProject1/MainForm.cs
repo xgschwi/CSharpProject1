@@ -23,13 +23,7 @@ namespace CSharpProject1
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'dataSet11.AssignmentsTBL' table. You can move, or remove it, as needed.
-            //this.assignmentsTBLTableAdapter.Fill(this.dataSet11.AssignmentsTBL);
-            // TODO: This line of code loads data into the 'dataSet11.AssignmentRecordsTBL' table. You can move, or remove it, as needed.
-
-            // TODO: This line of code loads data into the 'dataSet1.ClassesTBL' table. You can move, or remove it, as needed.
-
-
+  
         }
 
         private void MainForm_Activated(object sender, EventArgs e)
@@ -70,6 +64,10 @@ namespace CSharpProject1
             ClassesTBLTableAdapter clada = new ClassesTBLTableAdapter();
             metroComboBox1.DataSource = clada.GetData();
             metroComboBox1.DisplayMember = "ClassName";
+
+            /* Alternative to above
+             * this.classesTBLTableAdapter.Fill(this.dataSet1.ClassesTBL);
+            */
         }
         
 

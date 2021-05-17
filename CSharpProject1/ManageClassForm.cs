@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CSharpProject1.DataSet1TableAdapters;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -18,16 +19,30 @@ namespace CSharpProject1
             InitializeComponent();
         }
 
-        private void metroButton1_Click(object sender, EventArgs e)
-        {
-            DataSet1TableAdapters.ClassesTBLTableAdapter ada = new DataSet1TableAdapters.ClassesTBLTableAdapter();
-            ada.AddClass(metroTextBox1.Text, UserID);
-            Close();
-        }
 
         private void FormAddClass_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'dataSet1.ClassesTBL' table. You can move, or remove it, as needed.
+            this.classesTBLTableAdapter.Fill(this.dataSet1.ClassesTBL);
 
+        }
+
+        private void metroButton1_Click(object sender, EventArgs e)
+        {
+            ClassesTBLTableAdapter clada = new ClassesTBLTableAdapter();
+            clada.AddClass(metroTextBox1.Text, UserID);
+
+            // Updates Tables with new Class
+            this.classesTBLTableAdapter.Fill(this.dataSet1.ClassesTBL);
+        }
+
+        private void metroButton2_Click(object sender, EventArgs e)
+        {
+            ClassesTBLTableAdapter clada = new ClassesTBLTableAdapter();
+            clada.RemoveClass((int)metroComboBox1.SelectedValue, metroComboBox1.SelectedText, UserID);
+
+            // Updates Tables
+            this.classesTBLTableAdapter.Fill(this.dataSet1.ClassesTBL);
         }
     }
 }
