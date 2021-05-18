@@ -66,7 +66,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(533, 303);
+            this.dataGridView1.Size = new System.Drawing.Size(465, 303);
             this.dataGridView1.TabIndex = 0;
             // 
             // assignmentIDDataGridViewTextBoxColumn
@@ -123,7 +123,7 @@
             // metroLabel1
             // 
             this.metroLabel1.AutoSize = true;
-            this.metroLabel1.Location = new System.Drawing.Point(43, 40);
+            this.metroLabel1.Location = new System.Drawing.Point(28, 40);
             this.metroLabel1.Name = "metroLabel1";
             this.metroLabel1.Size = new System.Drawing.Size(85, 20);
             this.metroLabel1.TabIndex = 1;
@@ -141,7 +141,7 @@
             // labelClassID
             // 
             this.labelClassID.AutoSize = true;
-            this.labelClassID.Location = new System.Drawing.Point(509, 40);
+            this.labelClassID.Location = new System.Drawing.Point(428, 40);
             this.labelClassID.Name = "labelClassID";
             this.labelClassID.Size = new System.Drawing.Size(12, 20);
             this.labelClassID.TabIndex = 4;
@@ -150,7 +150,7 @@
             // metroLabel4
             // 
             this.metroLabel4.AutoSize = true;
-            this.metroLabel4.Location = new System.Drawing.Point(418, 40);
+            this.metroLabel4.Location = new System.Drawing.Point(349, 40);
             this.metroLabel4.Name = "metroLabel4";
             this.metroLabel4.Size = new System.Drawing.Size(58, 20);
             this.metroLabel4.TabIndex = 3;
@@ -179,9 +179,9 @@
             // 
             // 
             this.metroTextBox1.CustomButton.Image = null;
-            this.metroTextBox1.CustomButton.Location = new System.Drawing.Point(-62, 2);
+            this.metroTextBox1.CustomButton.Location = new System.Drawing.Point(-6, 1);
             this.metroTextBox1.CustomButton.Name = "";
-            this.metroTextBox1.CustomButton.Size = new System.Drawing.Size(135, 135);
+            this.metroTextBox1.CustomButton.Size = new System.Drawing.Size(115, 115);
             this.metroTextBox1.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.metroTextBox1.CustomButton.TabIndex = 1;
             this.metroTextBox1.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -190,13 +190,10 @@
             this.metroTextBox1.Lines = new string[] {
         "Statuses:",
         "___________",
-        "",
         "In Progress",
-        "",
         "Complete",
-        "",
         "Late"};
-            this.metroTextBox1.Location = new System.Drawing.Point(551, 139);
+            this.metroTextBox1.Location = new System.Drawing.Point(510, 137);
             this.metroTextBox1.MaxLength = 32767;
             this.metroTextBox1.Multiline = true;
             this.metroTextBox1.Name = "metroTextBox1";
@@ -206,9 +203,9 @@
             this.metroTextBox1.SelectionLength = 0;
             this.metroTextBox1.SelectionStart = 0;
             this.metroTextBox1.ShortcutsEnabled = true;
-            this.metroTextBox1.Size = new System.Drawing.Size(76, 140);
+            this.metroTextBox1.Size = new System.Drawing.Size(110, 117);
             this.metroTextBox1.TabIndex = 6;
-            this.metroTextBox1.Text = "Statuses:\r\n___________\r\n\r\nIn Progress\r\n\r\nComplete\r\n\r\nLate";
+            this.metroTextBox1.Text = "Statuses:\r\n___________\r\nIn Progress\r\nComplete\r\nLate";
             this.metroTextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.metroTextBox1.UseCustomBackColor = true;
             this.metroTextBox1.UseSelectable = true;

@@ -106,7 +106,6 @@
             this.metroTabPage1.VerticalScrollbarBarColor = true;
             this.metroTabPage1.VerticalScrollbarHighlightOnWheel = false;
             this.metroTabPage1.VerticalScrollbarSize = 10;
-            this.metroTabPage1.Click += new System.EventHandler(this.metroTabPage1_Click);
             // 
             // metroButton5
             // 
@@ -147,9 +146,9 @@
             // metroButton4
             // 
             this.metroButton4.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.metroButton4.Location = new System.Drawing.Point(646, 168);
+            this.metroButton4.Location = new System.Drawing.Point(613, 169);
             this.metroButton4.Name = "metroButton4";
-            this.metroButton4.Size = new System.Drawing.Size(122, 23);
+            this.metroButton4.Size = new System.Drawing.Size(145, 23);
             this.metroButton4.TabIndex = 10;
             this.metroButton4.Text = "Add Assignments";
             this.metroButton4.UseCustomBackColor = true;
@@ -159,11 +158,11 @@
             // metroButton3
             // 
             this.metroButton3.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.metroButton3.Location = new System.Drawing.Point(646, 114);
+            this.metroButton3.Location = new System.Drawing.Point(613, 119);
             this.metroButton3.Name = "metroButton3";
-            this.metroButton3.Size = new System.Drawing.Size(122, 23);
+            this.metroButton3.Size = new System.Drawing.Size(145, 23);
             this.metroButton3.TabIndex = 9;
-            this.metroButton3.Text = "Add Class";
+            this.metroButton3.Text = "Manage Classes";
             this.metroButton3.UseCustomBackColor = true;
             this.metroButton3.UseSelectable = true;
             this.metroButton3.Click += new System.EventHandler(this.metroButton3_Click);
@@ -285,7 +284,6 @@
             this.metroComboBox1.TabIndex = 2;
             this.metroComboBox1.UseSelectable = true;
             this.metroComboBox1.ValueMember = "ClassID";
-            this.metroComboBox1.SelectedIndexChanged += new System.EventHandler(this.metroComboBox1_SelectedIndexChanged);
             // 
             // classesTBLBindingSource
             // 

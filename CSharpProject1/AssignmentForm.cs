@@ -23,12 +23,12 @@ namespace CSharpProject1
 
         private void AssignmentForm_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'dataSet1.AssignmentsTBL' table. You can move, or remove it, as needed.
             this.assignmentsTBLTableAdapter.Fill(this.dataSet1.AssignmentsTBL);
             labelClassID.Text = ClassID.ToString();
             labelClassName.Text = ClassName;
         }
 
+        // Save edits to AssignmentsTBL
         private void metroButton1_Click(object sender, EventArgs e)
         {
             this.assignmentsTBLBindingSource.EndEdit();

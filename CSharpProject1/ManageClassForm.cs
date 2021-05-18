@@ -36,10 +36,11 @@ namespace CSharpProject1
             this.classesTBLTableAdapter.Fill(this.dataSet1.ClassesTBL);
         }
 
+        // Remove Classes
         private void metroButton2_Click(object sender, EventArgs e)
         {
             ClassesTBLTableAdapter clada = new ClassesTBLTableAdapter();
-            clada.RemoveClass((int)metroComboBox1.SelectedValue, metroComboBox1.SelectedText, UserID);
+            clada.RemoveClass((int)metroComboBox1.SelectedValue, UserID);
 
             // Updates Tables
             this.classesTBLTableAdapter.Fill(this.dataSet1.ClassesTBL);

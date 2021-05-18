@@ -2862,11 +2862,10 @@ SELECT ClassID, ClassName, UserID FROM ClassesTBL WHERE (ClassID = @ClassID)";
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ClassName", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "ClassName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = "DELETE FROM [ClassesTBL] WHERE [ClassID] = @Original_ClassID AND [ClassName] = @O" +
-                "riginal_ClassName AND [UserID] = @Original_UserID";
+            this._commandCollection[3].CommandText = "DELETE FROM [ClassesTBL] WHERE [ClassID] = @Original_ClassID AND [UserID] = @Orig" +
+                "inal_UserID;\r\nDELETE FROM [AssignmentsTBL] WHERE [ClassID] = @Original_ClassID;";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ClassID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ClassID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ClassName", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "ClassName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_UserID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "UserID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
@@ -3126,20 +3125,14 @@ SELECT ClassID, ClassName, UserID FROM ClassesTBL WHERE (ClassID = @ClassID)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, false)]
-        public virtual int RemoveClass(int Original_ClassID, string Original_ClassName, global::System.Nullable<int> Original_UserID) {
+        public virtual int RemoveClass(int Original_ClassID, global::System.Nullable<int> Original_UserID) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[3];
             command.Parameters[0].Value = ((int)(Original_ClassID));
-            if ((Original_ClassName == null)) {
-                command.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            else {
-                command.Parameters[1].Value = ((string)(Original_ClassName));
-            }
             if ((Original_UserID.HasValue == true)) {
-                command.Parameters[2].Value = ((int)(Original_UserID.Value));
+                command.Parameters[1].Value = ((int)(Original_UserID.Value));
             }
             else {
-                command.Parameters[2].Value = global::System.DBNull.Value;
+                command.Parameters[1].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
